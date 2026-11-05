@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · Everyday University student portal</title>
+<meta name="description" content="Sign in to the Everyday University student portal with your roll number and password.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><path d='M6 13l10-5 10 5-10 5z' fill='white'/></svg>">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth__side">
+    <div class="brand" style="border:0;padding-left:0">
+      <div class="brand__mark" id="sideIcon"></div>
+      <div><div class="brand__name">Everyday University</div><div class="brand__sub">Student portal</div></div>
+    </div>
+
+    <div>
+      <h2>Everything about your semester, in one login.</h2>
+      <p>Attendance that updates the same hour a faculty marks it, results the day they are published, and a fee record you can actually audit.</p>
+      <div class="auth__list" id="sideList"></div>
+    </div>
+
+    <div class="tiny" style="color:#98a2d4">
+      Academic year 2026–27 · helpdesk 040-2345 6789 · <a href="landing.html" style="text-decoration:underline">back to the site</a>
+    </div>
+  </aside>
+
+  <main class="auth__main">
+    <form class="auth__form" id="loginForm" novalidate>
+      <div class="row row--between">
+        <div>
+          <h1>Sign in</h1>
+          <p class="muted" style="font-size:14px;margin-top:2px">Use the credentials issued by the admissions office.</p>
+        </div>
+        <button type="button" class="icon-btn" id="themeBtn" aria-label="Toggle theme"></button>
+      </div>
+
+      <div class="field">
+        <label for="roll">Roll number</label>
+        <input class="input" id="roll" name="roll" inputmode="text" autocomplete="username"
+               placeholder="EU-CSE-2023-0148" value="EU-CSE-2023-0148">
+        <span class="field__err" id="rollErr" hidden>Enter the roll number printed on your ID card.</span>
+      </div>
+
+      <div class="field">
+        <label for="pass" class="row row--between" style="justify-content:space-between">
+          <span>Password</span>
+          <button type="button" class="tiny" id="forgot"
+                  style="border:0;background:none;color:var(--brand-600);font-weight:600;cursor:pointer">Forgot?</button>
+        </label>
+        <div style="position:relative">
+          <input class="input" id="pass" name="password" type="password" autocomplete="current-password"
+                 placeholder="••••••••••" value="portal@2026" style="padding-right:44px">
+          <button type="button" class="icon-btn" id="peek" aria-label="Show password"
+                  style="position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:none;width:36px;height:36px">👁</button>
+        </div>
+        <span class="field__err" id="passErr" hidden>Password must be at least 8 characters.</span>
+      </div>
+
+      <div class="row row--between">
+        <label class="check"><input type="checkbox" id="remember" checked> <span>Keep me signed in</span></label>
+        <span class="tiny muted">Last login 02 Nov 2026 · Hyderabad</span>
+      </div>
+
+      <button class="btn btn--primary btn--lg btn--block" type="submit" id="submitBtn">Sign in to the portal</button>
+
+      <div class="divider">SIGNED-IN OPTIONS</div>
+
+      <div class="row" style="gap:10px">
+        <button type="button" class="btn btn--outline btn--block" data-sso>College SSO</button>
+        <button type="button" class="btn btn--outline btn--block" data-sso>Google</button>
+      </div>
+
+      <div class="demo-note">
+        <strong>Demo credentials are prefilled.</strong><br>
+        Roll <code>EU-CSE-2023-0148</code> · password <code>portal@2026</code>.
+        Any roll number starting with <code>EU</code> works in this prototype.
+      </div>
+
+      <p class="tiny muted center">By signing in you agree to the <a href="#" style="color:var(--brand-600)">portal usage policy</a>.
+      Trouble? Contact the helpdesk at <a href="mailto:support@everydayuniv.edu" style="color:var(--brand-600)">support@everydayuniv.edu</a>.</p>
+    </form>
+  </main>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.SP) return;
+  var SP = window.SP;
+
+  document.getElementById("sideIcon").innerHTML = SP.icon("cap");
+  document.getElementById("sideList").innerHTML = [
+    ["checks", "Attendance updated the hour it is marked, subject by subject."],
+    ["award", "Internal marks, predicted scores and downloadable mark sheets."],
+    ["wallet", "Instalment-wise fee status with receipts for every payment."],
+    ["megaphone", "Notices from the registrar, filtered for your section."],
+  ].map(function (r) {
+    return '<div class="auth__li"><i>' + SP.icon(r[0]) + "</i><span>" + r[1] + "</span></div>";
+  }).join("");
+
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    SP.setTheme(SP.theme === "dark" ? "light" : "dark");
+  });
+
+  var pass = document.getElementById("pass");
+  document.getElementById("peek").addEventListener("click", function () {
+    var show = pass.type === "password";
+    pass.type = show ? "text" : "password";
+    this.textContent = show ? "🙈" : "👁";
+    this.setAttribute("aria-label", show ? "Hide password" : "Show password");
+  });
+
+  function mark(input, errId, bad) {
+    input.classList.toggle("input--invalid", bad);
+    document.getElementById(errId).hidden = !bad;
+    return !bad;
+  }
+
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var roll = document.getElementById("roll");
+    var okRoll = mark(roll, "rollErr", !/^EU-[A-Z]{2,4}-\d{4}-\d{3,4}$/.test(roll.value.trim().toUpperCase()));
+    var okPass = mark(pass, "passErr", pass.value.length < 8);
+    if (!okRoll || !okPass) { SP.toast("Check the highlighted fields", "warn"); return; }
+
+    var btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.textContent = "Verifying credentials…";
+    setTimeout(function () {
+      btn.textContent = "Loading your semester…";
+      location.href = "index.html";
+    }, 700);
+  });
+
+  document.getElementById("forgot").addEventListener("click", function () {
+    SP.modal({
+      title: "Reset your password",
+      body: "<p class='muted'>A one-time link is sent to the email on your admission record. It expires in 30 minutes.</p>" +
+        "<div class='field'><label>Roll number</label><input class='input' placeholder='EU-CSE-2023-0148'></div>" +
+        "<div class='field'><label>Date of birth</label><input class='input' placeholder='14/03/2005'></div>",
+      actions: "<button class='btn btn--ghost' data-close>Cancel</button><button class='btn btn--primary' data-confirm>Send reset link</button>",
+      onConfirm: function () { SP.toast("Reset link sent to aarav.reddy@everydayuniv.edu", "ok"); }
+    });
+  });
+
+  document.querySelectorAll("[data-sso]").forEach(function (b) {
+    b.addEventListener("click", function () { SP.toast(b.textContent + " is not wired in this prototype", "info"); });
+  });
+});
+</script>
+</body>
+</html>

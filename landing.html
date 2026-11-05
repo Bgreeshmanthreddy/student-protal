@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everyday University student portal · one place for your whole semester</title>
+<meta name="description" content="Attendance, timetable, exam results, fees, library and notices for Everyday University students — in one clean portal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234f46e5'/><path d='M6 13l10-5 10 5-10 5z' fill='white'/></svg>">
+</head>
+<body>
+<div class="pub">
+  <nav class="pub__nav">
+    <div class="brand" style="border:0;padding:0;margin:0">
+      <div class="brand__mark" id="navIcon" style="background:linear-gradient(140deg,var(--violet-500),var(--brand-600))"></div>
+      <div><div class="brand__name" style="color:var(--text)">Everyday University</div>
+        <div class="brand__sub" style="color:var(--muted)">Student portal</div></div>
+    </div>
+    <div class="pub__links">
+      <a href="#features">Features</a>
+      <a href="#pages">Pages</a>
+      <a href="#results">Results</a>
+      <a href="#help">Help</a>
+    </div>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"></button>
+    <a class="btn btn--primary" href="login.html">Sign in</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="hero__eyebrow"><span class="badge__dot" style="background:var(--teal-500)"></span> Live for 2026–27 · week 13</span>
+      <h1 class="hero__title">Your whole semester, <em>finally on one page</em>.</h1>
+      <p class="hero__lead">Attendance that updates the hour a faculty marks it. Results the day they publish. A fee record you can actually audit — instalment by instalment, receipt by receipt.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="login.html">Sign in to the portal <span data-icon="arrowRight"></span></a>
+        <a class="btn btn--outline btn--lg" href="index.html#/dashboard">Take the demo tour</a>
+      </div>
+      <div class="hero__trust">
+        <div><strong>9,400</strong><span>students onboard</span></div>
+        <div><strong>78%</strong><span>fewer helpdesk tickets</span></div>
+        <div><strong>&lt; 2 min</strong><span>to find your fee receipt</span></div>
+      </div>
+    </div>
+
+    <div class="shot">
+      <div class="shot__inner">
+        <div class="shot__chrome"><i></i><i></i><i></i></div>
+        <div style="padding:18px;display:grid;gap:14px;background:var(--surface)">
+          <div class="row row--between">
+            <div><div class="tiny muted">Semester 5 · CSE-B</div><strong>Good afternoon, Aarav</strong></div>
+            <span class="badge badge--info">Week 13 of 20</span>
+          </div>
+          <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:10px">
+            <div class="card" style="padding:14px"><div class="tiny muted">Attendance</div><div class="kpi__value" style="font-size:22px;margin:2px 0">83%</div><span class="trend trend--up" data-trend>Eligible</span></div>
+            <div class="card" style="padding:14px"><div class="tiny muted">CGPA</div><div class="kpi__value" style="font-size:22px;margin:2px 0">8.92</div><span class="trend trend--up">+0.37</span></div>
+            <div class="card" style="padding:14px"><div class="tiny muted">Fees due</div><div class="kpi__value" style="font-size:22px;margin:2px 0">₹65k</div><span class="trend trend--down">25 days</span></div>
+          </div>
+          <div id="heroChart" class="card" style="padding:14px"></div>
+          <div class="card" style="padding:14px">
+            <div class="row row--between"><strong style="font-size:13px">Today · 6 classes</strong><span class="tiny muted">A-204 · Lab-3</span></div>
+            <div id="heroList" style="margin-top:10px;display:grid;gap:8px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="shot__float" style="top:26px;right:-14px"><span class="avatar avatar--sm avatar--teal" data-icon="check"></span> CS504 report graded 19/20</div>
+      <div class="shot__float" style="bottom:34px;left:-18px;animation-delay:1.4s"><span class="avatar avatar--sm avatar--amber" data-icon="clock"></span> AVL assignment due 07 Nov</div>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <div class="section__head">
+      <div class="section__eyebrow">What is inside</div>
+      <h2 class="section__title">Nine pages, built around real student questions</h2>
+      <p class="section__text">Not a file dump. Each page answers one thing students actually ask the office every week.</p>
+    </div>
+    <div class="grid grid--3" id="featureGrid"></div>
+  </section>
+
+  <section class="section" id="pages">
+    <div class="grid grid--2" style="align-items:center;gap:48px">
+      <div>
+        <div class="section__eyebrow">Attendance, honestly</div>
+        <h2 class="section__title">Know your eligibility before the office tells you</h2>
+        <p class="section__text">Every subject shows classes attended against classes held, a colour-coded bar, and the exact number of classes needed to get back above 75%. The recovery plan is written for you, not buried in a circular.</p>
+        <div class="stack" style="margin-top:24px">
+          <div class="bar-row"><span style="width:70px;flex:none;font-weight:650;font-size:13px">DAA</span><div class="bar"><div class="bar__fill bar__fill--ok" style="width:86%"></div></div><span class="bar-row__pct">86%</span></div>
+          <div class="bar-row"><span style="width:70px;flex:none;font-weight:650;font-size:13px">CN</span><div class="bar"><div class="bar__fill bar__fill--bad" style="width:76%"></div></div><span class="bar-row__pct">76%</span></div>
+          <div class="bar-row"><span style="width:70px;flex:none;font-weight:650;font-size:13px">DBMS</span><div class="bar"><div class="bar__fill bar__fill--ok" style="width:92%"></div></div><span class="bar-row__pct">92%</span></div>
+        </div>
+        <a class="btn btn--primary" style="margin-top:24px" href="index.html#/attendance">Open attendance <span data-icon="arrowRight"></span></a>
+      </div>
+      <div class="card" style="padding:22px">
+        <div class="card__head" style="padding:0 0 14px"><div><h3 class="card__title">Fees · 2026–27</h3>
+          <div class="card__hint">₹1,20,000 of ₹1,85,000 cleared</div></div>
+          <span class="badge badge--warn">₹65,000 due</span></div>
+        <div class="bar" style="height:12px;margin-bottom:20px"><div class="bar__fill bar__fill--ok" style="width:65%"></div></div>
+        <div class="steps" id="feeSteps"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="section__head">
+      <div class="section__eyebrow">Design notes</div>
+      <h2 class="section__title">Built to read at a glance, in any light</h2>
+      <p class="section__text">One token set drives both themes. Same cards, same charts, same table — flipped by a single attribute.</p>
+    </div>
+    <div class="grid grid--3" id="designGrid"></div>
+  </section>
+
+  <section class="section">
+    <div class="cta-band">
+      <h2>Week 13 is already running.</h2>
+      <p>Your internals, attendance shortfall and the 30 November fee deadline are all waiting on one page.</p>
+      <div class="row" style="justify-content:center">
+        <a class="btn btn--lg" style="background:#fff;color:var(--brand-700)" href="login.html">Sign in with your roll number</a>
+        <a class="btn btn--lg btn--outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)" href="index.html#/dashboard">Demo tour</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="help">
+    <div><strong style="color:var(--text)">Everyday University</strong> · Student portal<br>
+      <span class="tiny">Mahbubnagar Road, Hyderabad 500033 · helpdesk 040-2345 6789</span></div>
+    <div class="row" style="gap:24px">
+      <a href="login.html">Sign in</a>
+      <a href="index.html#/announcements">Notices</a>
+      <a href="index.html#/fees">Fee desk</a>
+      <a href="mailto:support@everydayuniv.edu">Support</a>
+    </div>
+    <div class="tiny">© 2026 Everyday University · prototype, demo data only</div>
+  </footer>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var SP = window.SP;
+  if (!SP) return;
+
+  document.getElementById("navIcon").innerHTML = SP.icon("cap");
+  document.querySelectorAll("[data-icon]").forEach(function (el) {
+    el.outerHTML = SP.icon(el.getAttribute("data-icon"));
+  });
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    SP.setTheme(SP.theme === "dark" ? "light" : "dark");
+  });
+
+  document.getElementById("heroChart").innerHTML = SP.line(SP.reports.attendanceTrend,
+    ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"],
+    { min: 60, max: 100, height: 150, format: function (v) { return Math.round(v) + "%"; }, aria: "Attendance trend" });
+
+  document.getElementById("heroList").innerHTML = SP.subjects.slice(0, 3).map(function (s) {
+    return '<div class="row row--between" style="font-size:12.5px">' +
+      '<span class="row row--tight"><i class="legend__swatch" style="background:' + s.color + '"></i>' +
+      '<strong>' + SP.esc(s.short) + "</strong> <span class='muted'>" + SP.esc(s.room) + "</span></span>" +
+      '<span class="muted">' + ["09:00", "10:00", "11:15"][SP.subjects.indexOf(s) % 3] + "</span></div>";
+  }).join("");
+
+  document.getElementById("featureGrid").innerHTML = [
+    ["grid", "Dashboard", "Attendance, CGPA, dues and open tasks in four cards, plus today's classes.", "var(--brand-600)"],
+    ["calendar", "Timetable", "Week grid colour-coded by subject, labs outlined, lunch marked, free periods counted.", "var(--sky-500)"],
+    ["check", "Attendance", "Subject-wise bars, a class-log heatmap and a concrete recovery plan per shortage.", "var(--teal-500)"],
+    ["award", "Exam results", "Internals, predicted scores, SGPA trend and downloadable mark sheets.", "var(--violet-600)"],
+    ["book", "Assignments", "Progress bars, filters by status, upload modal with a draft-and-submit flow.", "var(--amber-500)"],
+    ["wallet", "Fees", "Instalment timeline, one-tap payment, receipts and scholarship breakdown.", "var(--rose-500)"],
+    ["megaphone", "Notice board", "Pinned notices first, filter by tag, and each one tells you the action needed.", "var(--brand-500)"],
+    ["library", "Library", "Loans, due countdowns, renewals and a clean fine record.", "var(--teal-500)"],
+    ["user", "Profile", "Verified details, documents, alert preferences and password change.", "var(--sky-500)"],
+  ].map(function (f) {
+    return '<article class="feature" style="--f-c:' + f[3] + '">' +
+      '<div class="feature__icon">' + SP.icon(f[0]) + "</div><h3>" + f[1] + "</h3><p>" + f[2] + "</p></article>";
+  }).join("");
+
+  document.getElementById("feeSteps").innerHTML = [
+    ["done", "Installment 1 · Tuition", "₹60,000 paid 12 Sep 2026 · RC-88213"],
+    ["done", "Installment 2 · Tuition", "₹60,000 paid 27 Oct 2026 · RC-90455"],
+    ["live", "Installment 3 · Tuition", "₹45,000 due 30 Nov 2026"],
+    ["", "Exam & laboratory fee", "₹20,000 due 20 Dec 2026"],
+  ].map(function (s) {
+    return '<div class="step step--' + s[0] + '"><div class="step__dot">' +
+      (s[0] === "done" ? SP.icon("check") : "") + "</div><div>" +
+      '<div class="step__title">' + s[1] + '</div><div class="step__text">' + s[2] + "</div></div></div>";
+  }).join("");
+
+  document.getElementById("designGrid").innerHTML = [
+    ["sun", "Two themes, one system", "Light for a bright hostel room, dark for a late revision night. Every chart, badge and table flips with it — nothing is hard-coded twice."],
+    ["chart", "Charts without a library", "The donut, line and bar charts are plain SVG generated from your data, so they inherit the theme and add no dependency to load."],
+    ["alert", "Warnings that tell you the next step", "Short attendance does not just turn red. It names the subject, counts the classes you need and gives you the condonation deadline."],
+  ].map(function (d) {
+    return '<article class="feature" style="--f-c:var(--brand-600)"><div class="feature__icon">' + SP.icon(d[0]) +
+      "</div><h3>" + d[1] + "</h3><p>" + d[2] + "</p></article>";
+  }).join("");
+});
+</script>
+</body>
+</html>
